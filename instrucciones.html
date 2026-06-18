@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#f05a1a">
 <title>Instrucciones - Recados Point</title>
 <style>
-:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --muted:#666; --line:#e5e5e5; --soft:#fff5f0; --screen:#f4f4f4; }
+:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --muted:#666; --line:#e5e5e5; --soft:#fff5f0; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:#fff; color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:1.45; }
@@ -19,16 +19,6 @@ ul,ol { margin:5px 0 10px 21px; padding:0; }
 li { margin:3px 0; }
 .notice { margin:10px 0; padding:10px 12px; background:var(--soft); border-left:4px solid var(--primary); }
 .important { font-weight:bold; }
-.visual-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:10px 0 14px; }
-.phone-shot { overflow:hidden; min-height:235px; border:7px solid #292929; border-radius:20px; background:var(--screen); box-shadow:0 3px 10px rgba(0,0,0,.14); }
-.phone-bar { padding:10px 12px; background:var(--primary); color:#fff; font-size:14px; font-weight:bold; }
-.phone-body { padding:9px; }
-.phone-row { margin-bottom:7px; padding:10px; border-radius:8px; background:#fff; border:1px solid #ddd; font-size:13px; }
-.phone-row strong { display:block; margin-bottom:2px; }
-.phone-option { display:flex; align-items:center; gap:8px; margin:6px 0; padding:8px; border-radius:7px; background:#fff; border:1px solid #ddd; font-size:13px; }
-.radio { width:16px; height:16px; border:2px solid #999; border-radius:50%; }
-.radio.on { border:5px solid var(--primary); }
-.caption { color:var(--muted); font-size:13px; }
 @media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } }
 </style>
 </head>
@@ -40,19 +30,11 @@ li { margin:3px 0; }
 <p>Recados Point necesita ubicación precisa, ubicación permanente y notificaciones para detectar una ubicación cuando la aplicación no está abierta.</p>
 <ol>
 <li>Abre <strong>Recados Point → Permisos</strong>.</li>
-<li>Activa primero <strong>Ubicación precisa</strong> y acepta el permiso mientras usas la aplicación.</li>
-<li>Activa después <strong>Ubicación permanente</strong>. En Android 11 o superior se abrirá la ficha de la aplicación.</li>
-<li>Entra en <strong>Permisos → Ubicación</strong> y selecciona <strong>Permitir siempre</strong>. Comprueba también que <strong>Usar ubicación precisa</strong> esté activado.</li>
-<li>Vuelve a Recados Point y activa <strong>Notificaciones</strong>.</li>
+<li>Al activar o desactivar <strong>Ubicación precisa</strong>, la app mostrará la ruta: <strong>Permisos → Ubicación → Usar ubicación precisa</strong>.</li>
+<li>Al activar o desactivar <strong>Ubicación permanente</strong>, la app mostrará la ruta: <strong>Permisos → Ubicación → Permitir siempre</strong>.</li>
+<li>Al activar o desactivar <strong>Notificaciones</strong>, la app mostrará la ruta: <strong>Notificaciones → Permitir notificaciones</strong>.</li>
 <li>En Android 14 o superior, activa también <strong>Alarmas a pantalla completa</strong> para que la alarma y el aviso por voz ocupen toda la pantalla.</li>
 </ol>
-<div class="notice"><strong>Ruta alternativa:</strong> mantén pulsado el icono de Recados Point → Información de la aplicación → Permisos → Ubicación → Permitir siempre.</div>
-<p class="caption">Las pantallas siguientes son orientativas. El nombre o la posición de alguna opción puede variar según la versión de Android o del fabricante.</p>
-<div class="visual-grid">
-<div class="phone-shot"><div class="phone-bar">Información de la aplicación</div><div class="phone-body"><div class="phone-row"><strong>Recados Point</strong>Aplicación instalada</div><div class="phone-row"><strong>Permisos</strong>Ubicación y notificaciones</div><div class="phone-row"><strong>Notificaciones</strong>Permitidas</div></div></div>
-<div class="phone-shot"><div class="phone-bar">Permisos de Recados Point</div><div class="phone-body"><div class="phone-row"><strong>Ubicación</strong>Pulsa para cambiar el permiso</div><div class="phone-row"><strong>Notificaciones</strong>Permitidas</div></div></div>
-<div class="phone-shot"><div class="phone-bar">Permiso de ubicación</div><div class="phone-body"><div class="phone-option"><span class="radio on"></span><strong>Permitir siempre</strong></div><div class="phone-option"><span class="radio"></span>Permitir solo con la aplicación en uso</div><div class="phone-option"><span class="radio"></span>No permitir</div><div class="phone-row"><strong>Usar ubicación precisa</strong>Activado</div></div></div>
-</div>
 <div class="notice">En teléfonos Samsung, si el seguimiento se detiene al dejar la aplicación en segundo plano, añade Recados Point a <strong>Ajustes → Mantenimiento y batería → Batería → Límites de uso en segundo plano → Aplicaciones sin suspensión</strong>.</div>
 
 <h2>2. Crear una ubicación</h2>
@@ -97,6 +79,7 @@ li { margin:3px 0; }
 <li><strong>Aviso por voz:</strong> anuncia el mensaje automático o personalizado y permite aplazarlo o detenerlo.</li>
 </ul>
 <p>En Configuración puedes elegir el tiempo máximo de la alarma y la voz, desde 15 segundos hasta 10 minutos, y seleccionar el sonido de alarma. Si no realizas ninguna acción, el sonido o la voz se detienen y queda una notificación.</p>
+<p>Si coinciden varias alarmas o avisos por voz, se reproducen uno detrás de otro. La pantalla indica cuántas ubicaciones esperan y muestra sus nombres. Cada ubicación pasa a Avisado hoy cuando comienza su turno.</p>
 
 <h2>7. Buscar, ordenar y eliminar</h2>
 <p>Utiliza el buscador para localizar una ubicación. El icono de ordenación permite ordenar por nombre o fecha de creación.</p>
