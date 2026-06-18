@@ -6,65 +6,108 @@
 <meta name="theme-color" content="#f05a1a">
 <title>Instrucciones - Recados Point</title>
 <style>
-:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; }
+:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --muted:#666; --line:#e5e5e5; --soft:#fff5f0; --screen:#f4f4f4; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:#fff; color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:1.45; }
 main { max-width:920px; margin:0 auto; padding:18px 16px 28px; }
 h1 { margin:0 0 12px; font-size:27px; line-height:1.2; }
 h2 { margin:20px 0 6px; padding-bottom:4px; border-bottom:1px solid var(--line); color:var(--primary-dark); font-size:20px; line-height:1.25; }
+h3 { margin:14px 0 5px; font-size:17px; }
 p { margin:0 0 8px; }
 ul,ol { margin:5px 0 10px 21px; padding:0; }
-li { margin:2px 0; }
+li { margin:3px 0; }
 .notice { margin:10px 0; padding:10px 12px; background:var(--soft); border-left:4px solid var(--primary); }
+.important { font-weight:bold; }
+.visual-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:10px 0 14px; }
+.phone-shot { overflow:hidden; min-height:235px; border:7px solid #292929; border-radius:20px; background:var(--screen); box-shadow:0 3px 10px rgba(0,0,0,.14); }
+.phone-bar { padding:10px 12px; background:var(--primary); color:#fff; font-size:14px; font-weight:bold; }
+.phone-body { padding:9px; }
+.phone-row { margin-bottom:7px; padding:10px; border-radius:8px; background:#fff; border:1px solid #ddd; font-size:13px; }
+.phone-row strong { display:block; margin-bottom:2px; }
+.phone-option { display:flex; align-items:center; gap:8px; margin:6px 0; padding:8px; border-radius:7px; background:#fff; border:1px solid #ddd; font-size:13px; }
+.radio { width:16px; height:16px; border:2px solid #999; border-radius:50%; }
+.radio.on { border:5px solid var(--primary); }
+.caption { color:var(--muted); font-size:13px; }
 @media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } }
 </style>
 </head>
 <body>
 <main>
 <h1>Instrucciones</h1>
-<h2>1. Crear una ubicación</h2>
+
+<h2>1. Conceder los permisos</h2>
+<p>Recados Point necesita ubicación precisa, ubicación permanente y notificaciones para detectar una ubicación cuando la aplicación no está abierta.</p>
+<ol>
+<li>Abre <strong>Recados Point → Permisos</strong>.</li>
+<li>Activa primero <strong>Ubicación precisa</strong> y acepta el permiso mientras usas la aplicación.</li>
+<li>Activa después <strong>Ubicación permanente</strong>. En Android 11 o superior se abrirá la ficha de la aplicación.</li>
+<li>Entra en <strong>Permisos → Ubicación</strong> y selecciona <strong>Permitir siempre</strong>. Comprueba también que <strong>Usar ubicación precisa</strong> esté activado.</li>
+<li>Vuelve a Recados Point y activa <strong>Notificaciones</strong>.</li>
+<li>En Android 14 o superior, activa también <strong>Alarmas a pantalla completa</strong> para que la alarma y el aviso por voz ocupen toda la pantalla.</li>
+</ol>
+<div class="notice"><strong>Ruta alternativa:</strong> mantén pulsado el icono de Recados Point → Información de la aplicación → Permisos → Ubicación → Permitir siempre.</div>
+<p class="caption">Las pantallas siguientes son orientativas. El nombre o la posición de alguna opción puede variar según la versión de Android o del fabricante.</p>
+<div class="visual-grid">
+<div class="phone-shot"><div class="phone-bar">Información de la aplicación</div><div class="phone-body"><div class="phone-row"><strong>Recados Point</strong>Aplicación instalada</div><div class="phone-row"><strong>Permisos</strong>Ubicación y notificaciones</div><div class="phone-row"><strong>Notificaciones</strong>Permitidas</div></div></div>
+<div class="phone-shot"><div class="phone-bar">Permisos de Recados Point</div><div class="phone-body"><div class="phone-row"><strong>Ubicación</strong>Pulsa para cambiar el permiso</div><div class="phone-row"><strong>Notificaciones</strong>Permitidas</div></div></div>
+<div class="phone-shot"><div class="phone-bar">Permiso de ubicación</div><div class="phone-body"><div class="phone-option"><span class="radio on"></span><strong>Permitir siempre</strong></div><div class="phone-option"><span class="radio"></span>Permitir solo con la aplicación en uso</div><div class="phone-option"><span class="radio"></span>No permitir</div><div class="phone-row"><strong>Usar ubicación precisa</strong>Activado</div></div></div>
+</div>
+<div class="notice">En teléfonos Samsung, si el seguimiento se detiene al dejar la aplicación en segundo plano, añade Recados Point a <strong>Ajustes → Mantenimiento y batería → Batería → Límites de uso en segundo plano → Aplicaciones sin suspensión</strong>.</div>
+
+<h2>2. Crear una ubicación</h2>
 <ol>
 <li>Pulsa el botón +.</li>
-<li>Escribe el nombre de la ubicación y, si lo necesitas, unos datos adicionales.</li>
+<li>Escribe el nombre de la ubicación y, si lo necesitas, datos adicionales.</li>
 <li>Busca una dirección, utiliza el botón de diana o mantén pulsado un punto del mapa.</li>
-<li>Configura el radio, el tipo de aviso, los días y el horario.</li>
-<li>Pulsa Guardar. La aplicación abrirá los recados pendientes de esa ubicación.</li>
+<li>Selecciona el radio exacto, el tipo de aviso, los días y el horario.</li>
+<li>Si eliges Aviso por voz, puedes escribir un mensaje personalizado.</li>
+<li>Pulsa Guardar. Se abrirán los recados de esa ubicación.</li>
 </ol>
-<h2>2. Añadir y completar recados</h2>
+
+<h2>3. Añadir y completar recados</h2>
 <p>Añade los recados que quieras recordar al llegar a la ubicación. Marca un recado cuando esté completado o elimínalo cuando ya no sea necesario.</p>
-<div class="notice">Cuando una ubicación se queda sin recados pendientes, se desactiva automáticamente. Al añadir otro recado pendiente vuelve a activarse, salvo que la hayas desactivado manualmente.</div>
-<h2>3. Funcionamiento de las ubicaciones</h2>
-<p>Los días y horarios no desactivan la ubicación. La dejan en espera hasta que vuelva a cumplirse el periodo configurado.</p>
+<div class="notice important">Para que una ubicación pueda avisar debe tener al menos un recado añadido, habilitado, pendiente y sin tachar.</div>
+<p>Cuando una ubicación se queda sin recados pendientes, se desactiva automáticamente. Al añadir otro recado pendiente vuelve a activarse, salvo que la hayas desactivado manualmente.</p>
+
+<h2>4. Funcionamiento de las ubicaciones</h2>
 <p>Una ubicación solo se vigila cuando se cumplen simultáneamente estas condiciones:</p>
 <ul>
 <li>No está desactivada manualmente.</li>
-<li>Tiene al menos un recado pendiente.</li>
+<li>Tiene al menos un recado pendiente y sin tachar.</li>
 <li>Es uno de los días seleccionados.</li>
 <li>Está dentro del horario configurado.</li>
-<li>Todavía no ha avisado durante ese día o ha sido rearmada manualmente.</li>
+<li>Todavía no ha avisado durante ese día.</li>
 </ul>
-<h2>4. Estados</h2>
+
+<h2>5. Estados</h2>
 <ul>
-<li>Activa.</li>
-<li>En espera · Fuera de horario.</li>
-<li>En espera · No activa hoy.</li>
-<li>Aviso pendiente.</li>
-<li>Avisado hoy.</li>
-<li>Desactivada manualmente.</li>
-<li>Desactivada automáticamente · Sin recados.</li>
+<li><strong>Activa:</strong> puede detectar la entrada y avisar.</li>
+<li><strong>En espera · Fuera de horario:</strong> hoy está habilitada, pero el horario no permite vigilarla en este momento.</li>
+<li><strong>Desactivada para hoy:</strong> el día actual no está seleccionado.</li>
+<li><strong>Avisado hoy:</strong> ya generó un aviso y no volverá a avisar automáticamente durante ese día.</li>
+<li><strong>Desactivada manualmente:</strong> el usuario apagó la ubicación.</li>
+<li><strong>Desactivada automáticamente · Sin recados:</strong> no existe ningún recado pendiente y sin tachar.</li>
 </ul>
-<h2>5. Tipos de aviso</h2>
+
+<h2>6. Tipos de aviso</h2>
 <ul>
-<li><strong>Notificación:</strong> muestra un aviso normal.</li>
-<li><strong>Alarma:</strong> abre una alarma con sonido repetitivo y permite aplazarla diez minutos o descartarla.</li>
-<li><strong>Aviso por voz:</strong> anuncia «Recado pendiente en…» o «Recados pendientes en…» y se repite hasta pulsar <strong>Aplazar 10 minutos</strong> o <strong>Detener voz</strong>.</li>
+<li><strong>Notificación:</strong> muestra un aviso normal con el nombre de la ubicación. El sonido y la vibración se gestionan desde los ajustes de notificaciones de Android.</li>
+<li><strong>Alarma:</strong> abre una alarma a pantalla completa con sonido repetitivo y permite aplazarla diez minutos o descartarla.</li>
+<li><strong>Aviso por voz:</strong> anuncia el mensaje automático o personalizado y permite aplazarlo o detenerlo.</li>
 </ul>
-<p>En Configuración puedes indicar el tiempo máximo que sonarán la alarma y el aviso por voz. El valor predeterminado es un minuto. Si no realizas ninguna acción, el sonido o la voz se detienen y queda una notificación pendiente.</p>
-<h2>6. Ordenar y buscar</h2>
-<p>Utiliza el buscador para localizar una ubicación. El icono de ordenación permite ordenar por nombre o fecha de creación. También puedes mantener pulsada una ubicación y arrastrarla para colocarla a tu gusto.</p>
-<h2>7. Copias de seguridad</h2>
-<p>Exportar crea una copia ZIP en la carpeta Descargas. Al importar puedes fusionar la copia con los datos actuales o reemplazar todos los datos.</p>
+<p>En Configuración puedes elegir el tiempo máximo de la alarma y la voz, desde 15 segundos hasta 10 minutos, y seleccionar el sonido de alarma. Si no realizas ninguna acción, el sonido o la voz se detienen y queda una notificación.</p>
+
+<h2>7. Buscar, ordenar y eliminar</h2>
+<p>Utiliza el buscador para localizar una ubicación. El icono de ordenación permite ordenar por nombre o fecha de creación.</p>
+<ul>
+<li>Pulsación rápida: abre los recados.</li>
+<li>Pulsación larga y soltar: selecciona una o varias ubicaciones para eliminarlas.</li>
+<li>Pulsación larga y arrastrar: cambia el orden manual.</li>
+</ul>
+
+<h2>8. Copias de seguridad</h2>
+<p><strong>Exportar archivo</strong> crea una copia ZIP en Descargas. Al usar <strong>Importar archivo</strong> puedes fusionar la copia con los datos actuales o reemplazar todos los datos.</p>
 </main>
 </body>
 </html>
