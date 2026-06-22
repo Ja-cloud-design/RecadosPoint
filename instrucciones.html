@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#f05a1a">
 <title>Instrucciones - Recados Point</title>
 <style>
-:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --muted:#666; --line:#e5e5e5; --soft:#fff5f0; }
+:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; --muted:#666; --danger:#c40000; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:#fff; color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:1.45; }
@@ -18,8 +18,11 @@ p { margin:0 0 8px; }
 ul,ol { margin:5px 0 10px 21px; padding:0; }
 li { margin:3px 0; }
 .notice { margin:10px 0; padding:10px 12px; background:var(--soft); border-left:4px solid var(--primary); }
+.path { margin:8px 0 10px; padding:9px 11px; background:#f3f3f3; font-family:Consolas,monospace; overflow-wrap:anywhere; }
+.center { text-align:center; }
+.qr { display:block; width:220px; max-width:100%; margin:14px auto; border:8px solid #fff; box-shadow:0 2px 12px rgba(0,0,0,.12); }
 .important { font-weight:bold; }
-@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } }
+@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } .qr { width:200px; } }
 </style>
 </head>
 <body>
@@ -43,54 +46,80 @@ li { margin:3px 0; }
 <li>Escribe el nombre de la ubicación y, si lo necesitas, datos adicionales.</li>
 <li>Busca una dirección, utiliza el botón de diana o mantén pulsado un punto del mapa.</li>
 <li>Selecciona el radio exacto, el tipo de aviso, los días y el horario.</li>
-<li>Si eliges Aviso por voz, puedes escribir un mensaje personalizado.</li>
-<li>Pulsa Guardar. Se abrirán los recados de esa ubicación.</li>
+<li>Si eliges <strong>Aviso por voz</strong>, puedes escribir un mensaje personalizado.</li>
+<li>Pulsa <strong>Guardar</strong>. Se abrirán los recados de esa ubicación.</li>
 </ol>
+<div class="notice"><strong>Los recados no son obligatorios.</strong> Si una ubicación está activa, puede avisar aunque no tenga recados pendientes.</div>
 
-<h2>3. Añadir y completar recados</h2>
-<p>Añade los recados que quieras recordar al llegar a la ubicación. Marca un recado cuando esté completado o elimínalo cuando ya no sea necesario.</p>
-<div class="notice important">Para que una ubicación pueda avisar debe tener al menos un recado añadido, habilitado, pendiente y sin tachar.</div>
-<p>Cuando una ubicación se queda sin recados pendientes, se desactiva automáticamente. Al añadir otro recado pendiente vuelve a activarse, salvo que la hayas desactivado manualmente.</p>
-
-<h2>4. Funcionamiento de las ubicaciones</h2>
-<p>Una ubicación solo se vigila cuando se cumplen simultáneamente estas condiciones:</p>
+<h2>3. Días activos y aviso de una sola vez</h2>
+<p>Los días seleccionados indican cuándo puede repetirse una ubicación.</p>
 <ul>
-<li>No está desactivada manualmente.</li>
-<li>Tiene al menos un recado pendiente y sin tachar.</li>
-<li>Es uno de los días seleccionados.</li>
-<li>Está dentro del horario configurado.</li>
-<li>Todavía no ha avisado durante ese día.</li>
+<li><strong>Con días seleccionados:</strong> la ubicación puede avisar esos días, respetando el horario configurado.</li>
+<li><strong>Sin ningún día seleccionado:</strong> la ubicación avisa una sola vez. Después del aviso se desactiva hasta que la vuelvas a activar manualmente.</li>
+</ul>
+<p>Esta lógica funciona como una alarma normal: sin días marcados es un aviso único; con días marcados es un aviso repetitivo según esos días.</p>
+
+<h2>4. Añadir, completar y ordenar recados</h2>
+<p>Añade los recados que quieras recordar al llegar a la ubicación. Cuando se abre el popup, el campo de texto recibe el foco y se muestra el teclado para escribir directamente.</p>
+<ul>
+<li><strong>Añadir:</strong> guarda el recado y cierra el popup.</li>
+<li><strong>Siguiente:</strong> guarda el recado y deja el popup preparado para escribir otro.</li>
+<li><strong>Tocar el texto:</strong> tacha o desmarca el recado.</li>
+<li><strong>Mantener pulsado y arrastrar:</strong> permite cambiar el orden manual de los recados.</li>
+<li><strong>Marcar/desmarcar todos:</strong> alterna entre tachar todos los recados o dejarlos todos pendientes.</li>
 </ul>
 
-<h2>5. Estados</h2>
+<h2>5. Funcionamiento de las ubicaciones</h2>
+<p>Una ubicación puede vigilarse cuando se cumplen estas condiciones:</p>
+<ul>
+<li>Está activada manualmente.</li>
+<li>Está dentro del radio configurado.</li>
+<li>Está dentro del horario configurado, si tiene horario.</li>
+<li>El día actual está permitido, o no hay ningún día seleccionado porque es un aviso de una sola vez.</li>
+<li>No ha generado ya el aviso que le corresponde.</li>
+</ul>
+<p>Si la ubicación no tiene recados, puede avisar igualmente. El aviso se basa en la ubicación activa, no en que existan recados pendientes.</p>
+
+<h2>6. Estados</h2>
 <ul>
 <li><strong>Activa:</strong> puede detectar la entrada y avisar.</li>
-<li><strong>En espera · Fuera de horario:</strong> hoy está habilitada, pero el horario no permite vigilarla en este momento.</li>
+<li><strong>En espera · Fuera de horario:</strong> está activada, pero el horario no permite vigilarla en este momento.</li>
 <li><strong>Desactivada para hoy:</strong> el día actual no está seleccionado.</li>
-<li><strong>Avisado hoy:</strong> ya generó un aviso y no volverá a avisar automáticamente durante ese día.</li>
+<li><strong>Aviso único:</strong> no tiene días seleccionados y avisará una sola vez.</li>
+<li><strong>Avisado hoy:</strong> ya generó un aviso durante el día actual.</li>
 <li><strong>Desactivada manualmente:</strong> el usuario apagó la ubicación.</li>
-<li><strong>Desactivada · Sin recados:</strong> no existe ningún recado pendiente y sin tachar.</li>
 </ul>
 
-<h2>6. Tipos de aviso</h2>
+<h2>7. Tipos de aviso</h2>
 <ul>
 <li><strong>Notificación:</strong> muestra un aviso normal con el nombre de la ubicación. El sonido y la vibración se gestionan desde los ajustes de notificaciones de Android.</li>
-<li><strong>Alarma:</strong> abre una alarma a pantalla completa con sonido repetitivo y permite aplazarla diez minutos o descartarla.</li>
-<li><strong>Aviso por voz:</strong> anuncia el mensaje automático o personalizado y permite aplazarlo o detenerlo.</li>
+<li><strong>Alarma:</strong> abre una alarma a pantalla completa con sonido repetitivo. Permite aplazarla el tiempo configurado o detenerla.</li>
+<li><strong>Aviso por voz:</strong> anuncia el mensaje automático o personalizado, respetando el descanso configurado entre repeticiones. Permite aplazarlo o detener la alarma.</li>
 </ul>
-<p>En Configuración puedes elegir el tiempo máximo de la alarma y la voz, desde 15 segundos hasta 10 minutos, y seleccionar el sonido de alarma. Si no realizas ninguna acción, el sonido o la voz se detienen y queda una notificación.</p>
-<p>Si coinciden varias alarmas o avisos por voz, se reproducen uno detrás de otro. La pantalla indica cuántas ubicaciones esperan y muestra sus nombres. Cada ubicación pasa a Avisado hoy cuando comienza su turno.</p>
+<div class="notice"><strong>Privacidad:</strong> la pantalla de alarma y las notificaciones no muestran la lista de recados. Solo se muestra la información necesaria para identificar el aviso.</div>
+<p>En Configuración puedes ajustar el tiempo máximo de alarma y voz, el descanso entre repeticiones de voz, el tiempo de aplazamiento y el sonido de alarma. Si no realizas ninguna acción, el sonido o la voz se detienen y queda una notificación.</p>
+<p>Si el motor de voz no está disponible, la aplicación cambia a alarma normal para evitar que el aviso falle.</p>
 
-<h2>7. Buscar, ordenar y eliminar</h2>
-<p>Utiliza el buscador para localizar una ubicación. El icono de ordenación permite ordenar por nombre o fecha de creación.</p>
+<h2>8. Buscar, ordenar y eliminar ubicaciones</h2>
+<p>Utiliza el buscador para localizar una ubicación. El icono de ordenación permite ordenar por nombre, fecha de creación u orden manual.</p>
 <ul>
 <li>Pulsación rápida: abre los recados.</li>
 <li>Pulsación larga y soltar: selecciona una o varias ubicaciones para eliminarlas.</li>
 <li>Pulsación larga y arrastrar: cambia el orden manual.</li>
 </ul>
 
-<h2>8. Copias de seguridad</h2>
-<p><strong>Exportar archivo</strong> abre el selector de Android para elegir la carpeta y modificar el nombre del ZIP. El nombre propuesto empieza por <strong>RecadosPoint_ubicaciones_</strong>. Al usar <strong>Importar archivo</strong> puedes fusionar la copia con los datos actuales o reemplazar todos los datos.</p>
+<h2>9. Configuración</h2>
+<ul>
+<li><strong>Tiempo máximo de alarma y voz:</strong> permite indicar segundos o minutos mediante slider.</li>
+<li><strong>Descanso entre repeticiones de voz:</strong> añade una pausa entre repetición y repetición para que no resulte tan continuo.</li>
+<li><strong>Aplazar alarma:</strong> permite elegir el tiempo del botón de aplazamiento, por ejemplo 5, 10 o 15 minutos.</li>
+<li><strong>Días activos predeterminados:</strong> pueden quedar todos desmarcados para crear avisos de una sola vez.</li>
+<li><strong>Exportar configuración e importar configuración:</strong> permiten guardar o restaurar los ajustes de la aplicación.</li>
+</ul>
+
+<h2>10. Copias de seguridad</h2>
+<p><strong>Exportar ubicaciones</strong> abre el selector de Android para elegir la carpeta y modificar el nombre del ZIP. El nombre propuesto empieza por <strong>RecadosPoint_ubicaciones_</strong>.</p>
+<p>Al usar <strong>Importar ubicaciones</strong> puedes fusionar la copia con los datos actuales o reemplazar todos los datos.</p>
 </main>
 </body>
 </html>

@@ -6,38 +6,47 @@
 <meta name="theme-color" content="#f05a1a">
 <title>Política de privacidad - Recados Point</title>
 <style>
-:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; }
+:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; --muted:#666; --danger:#c40000; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:#fff; color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:1.45; }
 main { max-width:920px; margin:0 auto; padding:18px 16px 28px; }
 h1 { margin:0 0 12px; font-size:27px; line-height:1.2; }
 h2 { margin:20px 0 6px; padding-bottom:4px; border-bottom:1px solid var(--line); color:var(--primary-dark); font-size:20px; line-height:1.25; }
+h3 { margin:14px 0 5px; font-size:17px; }
 p { margin:0 0 8px; }
-ul { margin:5px 0 10px 21px; padding:0; }
-li { margin:2px 0; }
+ul,ol { margin:5px 0 10px 21px; padding:0; }
+li { margin:3px 0; }
 .notice { margin:10px 0; padding:10px 12px; background:var(--soft); border-left:4px solid var(--primary); }
-@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } }
+.path { margin:8px 0 10px; padding:9px 11px; background:#f3f3f3; font-family:Consolas,monospace; overflow-wrap:anywhere; }
+.center { text-align:center; }
+.qr { display:block; width:220px; max-width:100%; margin:14px auto; border:8px solid #fff; box-shadow:0 2px 12px rgba(0,0,0,.12); }
+.important { font-weight:bold; }
+@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } .qr { width:200px; } }
 </style>
 </head>
 <body>
 <main>
 <h1>Política de privacidad</h1>
-<p>Última actualización: 17 de junio de 2026.</p>
+<p>Última actualización: 22 de junio de 2026.</p>
+<div class="notice"><strong>Recados Point no envía tus ubicaciones, recados, coordenadas ni preferencias al desarrollador ni a servidores propios de la aplicación.</strong> Los datos principales se guardan localmente en tu dispositivo.</div>
 <h2>Datos guardados</h2>
-<p>Recados Point guarda localmente en el dispositivo las ubicaciones, coordenadas, datos adicionales, recados y preferencias configuradas por el usuario.</p>
+<p>Recados Point guarda localmente en el dispositivo las ubicaciones, coordenadas, datos adicionales, recados, estados de alarma, orden manual y preferencias configuradas por el usuario.</p>
 <h2>Ubicación</h2>
-<p>La aplicación utiliza la ubicación precisa, incluida la ubicación en segundo plano, para comprobar si el dispositivo entra dentro del radio configurado. El seguimiento solo se realiza cuando existe alguna ubicación que pueda generar un aviso.</p>
+<p>La aplicación utiliza la ubicación precisa, incluida la ubicación en segundo plano, para comprobar si el dispositivo entra dentro del radio configurado. El seguimiento solo se realiza cuando existe alguna ubicación activa que pueda generar un aviso.</p>
+<p>La aplicación no envía automáticamente las coordenadas guardadas al desarrollador ni a servidores propios.</p>
+<h2>Recados y privacidad en avisos</h2>
+<p>Los recados se guardan localmente. Para proteger la privacidad, el contenido de los recados no se muestra en la pantalla de alarma ni en las notificaciones.</p>
 <h2>Mapas y búsquedas</h2>
-<p>Los mapas se cargan mediante MapLibre y OpenFreeMap. Las búsquedas de direcciones utilizan el servicio de geocodificación disponible en Android. Estas funciones necesitan conexión a Internet.</p>
+<p>Los mapas se cargan mediante MapLibre y OpenFreeMap. Las búsquedas de direcciones utilizan el servicio de geocodificación disponible en Android. Estas funciones necesitan conexión a Internet para mostrar el mapa o buscar direcciones.</p>
 <h2>Notificaciones, alarmas y voz</h2>
 <p>La aplicación utiliza notificaciones y servicios visibles de Android para mantener el seguimiento y mostrar los avisos elegidos por el usuario. El aviso por voz utiliza el motor de síntesis de voz instalado en el dispositivo.</p>
 <h2>Copias de seguridad</h2>
-<p>Las copias ZIP se guardan en la carpeta Descargas cuando el usuario pulsa Exportar. La aplicación no las envía automáticamente a ningún servidor.</p>
+<p>Las copias ZIP de ubicaciones y los archivos de configuración se guardan en la carpeta elegida por el usuario mediante el selector de archivos de Android. La aplicación no los envía automáticamente a ningún servidor.</p>
 <h2>Publicidad y cuentas</h2>
 <p>Recados Point no incluye cuentas de usuario, publicidad ni venta de datos personales.</p>
 <h2>Eliminación de datos</h2>
-<p>El usuario puede eliminar ubicaciones y recados desde la aplicación. Al desinstalarla, Android elimina los datos privados locales de la aplicación. Las copias exportadas en Descargas deben eliminarse manualmente.</p>
+<p>El usuario puede eliminar ubicaciones y recados desde la aplicación. Al desinstalarla, Android elimina los datos privados locales de la aplicación. Las copias exportadas deben eliminarse manualmente de la carpeta elegida por el usuario.</p>
 <div class="notice">El usuario controla qué ubicaciones guarda, qué permisos concede y cuándo activa o desactiva cada recordatorio.</div>
 </main>
 </body>

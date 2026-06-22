@@ -6,35 +6,45 @@
 <meta name="theme-color" content="#f05a1a">
 <title>Acerca de - Recados Point</title>
 <style>
-:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; }
+:root { --primary:#f05a1a; --primary-dark:#c94710; --text:#252525; --line:#e5e5e5; --soft:#fff5f0; --muted:#666; --danger:#c40000; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:#fff; color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:16px; line-height:1.45; }
 main { max-width:920px; margin:0 auto; padding:18px 16px 28px; }
 h1 { margin:0 0 12px; font-size:27px; line-height:1.2; }
 h2 { margin:20px 0 6px; padding-bottom:4px; border-bottom:1px solid var(--line); color:var(--primary-dark); font-size:20px; line-height:1.25; }
+h3 { margin:14px 0 5px; font-size:17px; }
 p { margin:0 0 8px; }
-ul { margin:5px 0 10px 21px; padding:0; }
-li { margin:2px 0; }
+ul,ol { margin:5px 0 10px 21px; padding:0; }
+li { margin:3px 0; }
 .notice { margin:10px 0; padding:10px 12px; background:var(--soft); border-left:4px solid var(--primary); }
-@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } }
+.path { margin:8px 0 10px; padding:9px 11px; background:#f3f3f3; font-family:Consolas,monospace; overflow-wrap:anywhere; }
+.center { text-align:center; }
+.qr { display:block; width:220px; max-width:100%; margin:14px auto; border:8px solid #fff; box-shadow:0 2px 12px rgba(0,0,0,.12); }
+.important { font-weight:bold; }
+@media (max-width:600px) { main { padding:14px 12px 24px; } h1 { font-size:24px; } h2 { font-size:18px; } .qr { width:200px; } }
 </style>
 </head>
 <body>
 <main>
 <h1>Recados Point</h1>
 <div class="notice"><strong>Recados Point</strong> te ayuda a recordar lo que tienes que hacer cuando llegas o pasas cerca de un lugar.</div>
-<p>Guarda una ubicación con sus datos adicionales opcionales, añade sus recados y configura el radio de detección, los días, el horario y el tipo de aviso.</p>
-<p>La aplicación puede avisarte mediante una notificación, una alarma o un mensaje de voz repetitivo.</p>
+<p>Guarda una ubicación, configura su radio de detección, días, horario y tipo de aviso, y añade recados si quieres tener una lista asociada a ese lugar.</p>
+<p>La aplicación puede avisarte mediante una notificación, una alarma o un mensaje de voz. El contenido de los recados no se muestra en la pantalla de alarma ni en las notificaciones, para evitar exponer información privada.</p>
 <h2>Funciones principales</h2>
 <ul>
-<li>Ubicaciones con recados pendientes.</li>
-<li>Seguimiento según días y horarios.</li>
-<li>Radio de detección configurable.</li>
-<li>Búsqueda, ordenación y reordenación manual.</li>
-<li>Copias de seguridad ZIP con fusión o reemplazo.</li>
+<li>Ubicaciones con o sin recados asociados.</li>
+<li>Alarma normal, notificación o aviso por voz.</li>
+<li>Tiempo máximo de alarma y voz configurable.</li>
+<li>Aplazamiento configurable de la alarma.</li>
+<li>Descanso entre repeticiones del aviso por voz.</li>
+<li>Recados tachables tocando el texto y reordenables manualmente.</li>
+<li>Días activos, horario y radio de detección configurables.</li>
+<li>Si no seleccionas ningún día, la alarma avisa una sola vez y después se desactiva hasta activarla manualmente.</li>
+<li>Búsqueda, ordenación y reordenación manual de ubicaciones.</li>
+<li>Exportación e importación de ubicaciones en ZIP.</li>
 </ul>
-<div class="notice"><strong>Tus ubicaciones y recados se guardan localmente en el dispositivo.</strong></div>
+<div class="notice"><strong>Tus ubicaciones, recados y preferencias se guardan localmente en el dispositivo.</strong></div>
 </main>
 </body>
 </html>
